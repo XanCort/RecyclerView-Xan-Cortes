@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Crear el adaptador
-        ContactoAdapter ContactoAdapter = new ContactoAdapter(contactos);
+        ContactoAdapter ContactoAdapter = new ContactoAdapter(contactos, evento->{
+            Toast.makeText(this,"Llamando a "+evento.getNombre(),Toast.LENGTH_SHORT).show();
+        });
 
         // Instanciar el RecyclerView
         RecyclerView rvContactos = findViewById(R.id.rv_Contactos);
